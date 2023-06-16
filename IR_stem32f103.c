@@ -1,9 +1,9 @@
 #include "stm32f10x.h"
 
-
+// define the pin for IR sensor
 #define IR_SENSOR_PIN GPIO_Pin_0
 #define IR_SENSOR_PORT GPIOA
-
+// some function
 void GPIO_Configuration(void);
 void EXTI_Configuration(void);
 void Delay( uint8_t counter);
@@ -59,7 +59,7 @@ void EXTI_Configuration(void)
   EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
   EXTI_InitStructure.EXTI_LineCmd = ENABLE;
   EXTI_Init(&EXTI_InitStructure);
-
+// interrupt 
 
   NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;
